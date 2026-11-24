@@ -1,0 +1,46 @@
+{
+  "$comment": "A2A client configuration example. The live, authoritative card is https://a2a.intelliliving.kr/.well-known/agent-card.json — this file shows what an A2A client stores and how it authenticates.",
+  "protocolVersion": "0.3.0",
+  "name": "IntelliCore A2A Gateway",
+  "url": "https://a2a.intelliliving.kr/a2a",
+  "preferredTransport": "JSONRPC",
+  "additionalInterfaces": [
+    { "url": "https://a2a.intelliliving.kr/a2a", "transport": "JSONRPC" },
+    { "url": "https://a2a.intelliliving.kr/v1/call", "transport": "HTTP+JSON" },
+    { "url": "https://a2a.intelliliving.kr/mcp", "transport": "HTTP+JSON" }
+  ],
+  "provider": { "organization": "IntelliCore (by Intelli living)", "url": "https://intelliliving.kr" },
+  "documentationUrl": "https://a2a.intelliliving.kr/llms.txt",
+  "securitySchemes": {
+    "bearer": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "ek_<payload>.<signature>",
+      "description": "Get a free 25-credit key at POST /api/onboard/trial, or a paid one at POST /api/onboard/claim with a purchase code."
+    }
+  },
+  "security": [{ "bearer": [] }],
+  "skills": [
+    {
+      "id": "disclosure.inspect",
+      "name": "disclosure.inspect",
+      "description": "Inspect a page for AI disclosure, generated-output label and machine-readable marks. 5 credits per successful call.",
+      "tags": ["ai-disclosure", "generated-output-label", "html-inspection"],
+      "examples": ["{\"skill\":\"disclosure.inspect\",\"input\":{\"url\":\"https://example.com\"}}"]
+    },
+    {
+      "id": "pg.scan",
+      "name": "pg.scan",
+      "description": "Score a checkout page against 28 Korean PG and global MoR review rules. 5 credits per successful call.",
+      "tags": ["payments", "pg-review", "checkout-compliance"],
+      "examples": ["{\"skill\":\"pg.scan\",\"input\":{\"url\":\"https://store.example.com/checkout\",\"profile\":\"kr-pg\"}}"]
+    },
+    {
+      "id": "localizer.render",
+      "name": "localizer.render",
+      "description": "Localize money, tax, date, disclaimers and refund wording into an approved locale pack. 5 credits per successful call.",
+      "tags": ["localization", "money-and-tax-format", "legal-copy"],
+      "examples": ["{\"skill\":\"localizer.render\",\"input\":{\"locale\":\"ja\",\"document\":{\"title\":\"Pricing\"}}}"]
+    }
+  ]
+}

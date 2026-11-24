@@ -1,0 +1,45 @@
+{
+  "name": "intellicore-a2a",
+  "version": "1.0.0",
+  "description": "Node SDK and MCP bridge for the IntelliCore A2A gateway — metered AI disclosure, PG compliance and localization skills over HTTP, A2A and MCP.",
+  "type": "module",
+  "main": "./sdk/node/intellicore-a2a.js",
+  "exports": {
+    ".": "./sdk/node/intellicore-a2a.js"
+  },
+  "bin": {
+    "intellicore-a2a-mcp": "./mcp/server.js"
+  },
+  "files": [
+    "sdk/node",
+    "mcp",
+    "agent.json",
+    ".mcp.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "trial": "node examples/trial-key.mjs",
+    "example": "node examples/trial-and-call.mjs",
+    "test": "node test/smoke.mjs",
+    "mcp": "node mcp/server.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "a2a",
+    "agent-to-agent",
+    "ai-agents",
+    "sdk",
+    "intellicore"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/295rdptvsm-netizen/intellicore-a2a-mcp.git"
+  },
+  "homepage": "https://a2a.intelliliving.kr"
+}

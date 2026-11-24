@@ -1,0 +1,13 @@
+{
+  "$comment": "Example for a stdio-only MCP client (Claude Desktop). First get a key with `node examples/trial-key.mjs` or POST /api/onboard/trial, then paste it into env below.",
+  "mcpServers": {
+    "intellicore-a2a": {
+      "command": "node",
+      "args": ["/absolute/path/to/intellicore-a2a-mcp/mcp/server.js"],
+      "env": {
+        "INTELLICORE_A2A_KEY": "ek_...",
+        "INTELLICORE_A2A_BASE": "https://a2a.intelliliving.kr"
+      }
+    }
+  }
+}

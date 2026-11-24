@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "intellicore-a2a": {
+      "type": "http",
+      "url": "https://a2a.intelliliving.kr/mcp",
+      "headers": {
+        "authorization": "Bearer ${INTELLICORE_A2A_KEY}"
+      }
+    }
+  }
+}
